@@ -331,10 +331,28 @@ int main() {
 * 🧮 របាយការណ៍ប្រាក់ខែសរុប និងចំនួនបុគ្គលិក
 * 🧾 ប្រើ array ដើម្បីរក្សាទុកឯកសារបុគ្គលិក
 
-បើអ្នកចង់បន្ថែម Menu របាយការណ៍ ឬប្រើ `vector` ជំនួស `array` សូមប្រាប់ខ្ញុំបន្ថែមបាន។
-
-
-
+<!-- បើអ្នកចង់បន្ថែម Menu របាយការណ៍ ឬប្រើ `vector` ជំនួស `array` សូមប្រាប់ខ្ញុំបន្ថែមបាន។ -->
+### SearchByID
+```cpp
+//SearchByID
+		void searchById(Employee obj[], int n){
+			int idSearch, isFound;
+			cout<<"Input Employee id to search : ";cin >>idSearch;
+			isFound=0;
+			for(int i=0; i<n; i++){
+				if(idSearch == obj[i].getId()){
+					printHeader();
+					obj[i].output();
+					isFound=1;
+					break;
+				}
+			}
+			
+			if(isFound==0){
+				cout<<"Message >>>(ID"<<idSearch<<"not fourn "<<endl;
+			}
+		}
+```
 
 | **បន្ទាត់**                                                        | **អត្ថន័យ**                                                                                                    |
 | ------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- |
