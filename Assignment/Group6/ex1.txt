@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+// Function to get an element from the array at a given index
+int getElement(int arr[], int index) {
+    return arr[index];
+}
+
+// Function to set an element in the array at a given index
+void setElement(int arr[], int index, int value) {
+    arr[index] = value;
+}
+
+// Function to display the array
+void displayArray(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+// Function to find the minimum value in the array
+int findMin(int arr[], int size) {
+    int min = arr[0]; // Start with the first element
+    for (int i = 1; i < size; i++) {
+        if (arr[i] < min) {
+            min = arr[i];
+        }
+    }
+    return min;
+}
+
+int findMax(int arr[], int size) {
+    int max = arr[0]; // Start with the first element
+    for (int i = 1; i < size; i++) {
+        if (arr[i] > max) {
+            max = arr[i];
+        }
+    }
+    return max;
+}
+
+void deleteElement(int arr[], int& size, int index) {
+    if (index < 0 || index >= size) {
+        cout << "Invalid index!" << endl;
+        return;
+    }
+    for (int i = index; i < size - 1; i++) {
+        arr[i] = arr[i + 1];
+    }
+    size--; // Reduce the effective size of the array
+}
+
+// Function to find the index of a specific value in the array
+int findIndex(int arr[], int size, int value) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == value) {
+            return i;
+        }
+    }
+    return -1; // Return -1 if value is not found
+}
+
+int main() {
+    int Salary[7] = {300, 140, 120, 250, 400,1,0};
+    int size = 7;
+
+    cout << "Original Salary array: ";
+    displayArray(Salary, size);
+
+    // Find the minimum value in the array
+    int minValue = findMin(Salary, size);
+    cout << "Minimum value in Salary array: " << minValue << endl;
+    
+    int maxValue = findMax(Salary, size);
+    cout << "Maximize value in Salary array: " << maxValue << endl;
+    
+    // Delete element at index 2
+    deleteElement(Salary, size, 2);
+    cout << "After deleting element at index 2: ";
+    displayArray(Salary, size);
+    
+    // Example: Find index of value 250
+    int index = findIndex(Salary, size, 250);
+    if (index != -1) {
+        cout << "Index of value 250: " << index << endl;
+    } else {
+        cout << "Value 250 not found!" << endl;
+    }
+
+    return 0;
+}
